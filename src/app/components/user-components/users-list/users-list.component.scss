@@ -1,0 +1,91 @@
+mat-card {
+  max-width: 500px;
+  margin: 8px auto;
+}
+
+mat-card-subtitle {
+  margin-bottom: 0;
+  font-size: 22px;
+}
+
+.imgProfile {
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.user {
+  cursor: pointer;
+}
+
+.userView {
+  display: inline-table;
+
+  div {
+    margin-bottom: 12px;
+  }
+
+  div div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  &.description p {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  &.description {
+    padding-left: 6px;
+  }
+}
+
+.dividerCustom {
+  margin-top: 6px;
+  width: 96% !important;
+  margin-left: 2%;
+}
+
+.paginationWrapper {
+  text-align: end;
+}
+
+.pagination {
+  display: flex;
+
+  .page, mat-icon {
+    flex-basis: 20px;
+    align-self: center;
+  }
+
+  .page p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  /*flex-wrap: wrap;*/
+  justify-content: flex-start;
+
+  mat-form-field {
+    flex-basis: 100%;
+  }
+
+  mat-form-field, mat-icon {
+    align-self: center;
+  }
+}
+
+mat-icon {
+  cursor: pointer;
+}

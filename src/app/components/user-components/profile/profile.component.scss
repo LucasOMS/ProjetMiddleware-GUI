@@ -1,0 +1,45 @@
+mat-card {
+  max-width: 800px;
+  margin: 8px auto;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.content {
+  padding: 10px 0;
+}
+
+button + label {
+  cursor: pointer;
+  position: relative;
+  top: 3px;
+}
+
+button {
+  outline: none;
+}
+
+.imgProfile {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100px;
+}
+
+.socialNetworks button {
+  display: block;
+  width: 210px;
+  margin: auto auto 8px;
+}
+
+.changeButton {
+  display: block;
+  margin: 0 auto 8px auto;
+}
+
+.hideCard {
+  display: none;
+}

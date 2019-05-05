@@ -1,0 +1,38 @@
+@import './variables';
+@import './mixins';
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~font-awesome/css/font-awesome.css';
+
+body {
+  min-height: 100vh;
+}
+
+.popupSnackBar {
+  background: transparent !important;
+  text-align: right !important;
+  max-width: 400px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.mat-snack-bar-handset {
+  max-width: 400px !important;
+}
+
+::selection {
+  color: white;
+  background: $primary-color;
+}
+
+
+//Use to make content vertically aligned as child of mat-sidenav-content take all width
+//Used like a glitch
+router-outlet + * {
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Candara";
+  src: url("./Candara.ttf");
+}

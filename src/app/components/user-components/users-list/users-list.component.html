@@ -1,0 +1,37 @@
+<div *ngIf="loading" class="loading">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<mat-card [hidden]="loading">
+    <mat-card-title *ngIf="title === null">Utilisateurs</mat-card-title>
+    <mat-card-title *ngIf="title !== null">{{title}}</mat-card-title>
+    <mat-card-subtitle *ngIf="title !== null">Utilisateurs</mat-card-subtitle>
+    <div class="filters">
+        <mat-form-field>
+            <input (change)="updateList()" [(ngModel)]="searchField" matInput placeholder="Chercher par nom ou prénom"
+                   type="text">
+        </mat-form-field>
+        <mat-icon (click)="updateList()">search</mat-icon>
+        <mat-icon (click)="searchField = ''; updateList()" *ngIf="searchField.length > 0">close</mat-icon>
+    </div>
+    <div class="userView">
+        <div (click)="select(user)" *ngFor="let user of displayedUsers.slice(page*pageStep, page*pageStep+pageStep)"
+             class="user">
+            <!-- Image profile or placehorlder -->
+            <div [ngStyle]="getUrl(user)" class="imgProfile"></div>
+            <div class="userView description">
+                <p>{{user.firstName}} {{user.lastName}}</p>
+            </div>
+            <mat-divider *ngIf="user != displayedUsers[displayedUsers.length-1]" class="dividerCustom"></mat-divider>
+        </div>
+    </div>
+    <div class="paginationWrapper">
+        <div class="pagination">
+            <mat-icon (click)="previousPage()" *ngIf="page > 0" style="display: table-cell">arrow_back_ios</mat-icon>
+            <div *ngIf="displayedUsers.length > pageStep" class="page" style="display: table-cell">
+                <p>{{(page + 1)}}</p>
+            </div>
+            <mat-icon (click)="nextPage()" *ngIf="!isLastPage()" style="display: table-cell">arrow_forward_ios
+            </mat-icon>
+        </div>
+    </div>
+</mat-card>

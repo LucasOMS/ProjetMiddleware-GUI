@@ -1,0 +1,40 @@
+<mat-card id="card">
+    <form>
+        <div class="names">
+            <mat-form-field>
+                <input [(ngModel)]="userToRegister.firstName" matInput name="firstName" placeholder="Prénom" required
+                       type="text"/>
+                <mat-error>Vous devez entrer une valeur</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input [(ngModel)]="userToRegister.lastName" matInput name="name" placeholder="Nom" required
+                       type="text"/>
+                <mat-error>Vous devez entrer une valeur</mat-error>
+            </mat-form-field>
+        </div>
+        <mat-form-field>
+            <input [formControl]="formControlMail" autocomplete="username" matInput name="mail" placeholder="Mail"
+                   required
+                   type="text"/>
+            <mat-error *ngIf="formControlMail.invalid">{{getMailError()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="5 caractères minimum">
+            <input (change)="checkPwdConfirm(); checkPwd();" [formControl]="formControlPwd" autocomplete="new-password"
+                   matInput name="pwd" placeholder="Mot de passe"
+                   required
+                   type="password"/>
+            <mat-error *ngIf="formControlPwd.invalid">{{getPwdError()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input (change)="checkPwdConfirm(); checkPwd();" [formControl]="formControlPwdConfirm"
+                   autocomplete="new-password" matInput
+                   name="pwdConfirm" placeholder="Confirmation du mot de passe"
+                   required type="password"/>
+            <mat-error *ngIf="formControlPwdConfirm.invalid">{{getPwdConfirmError()}}</mat-error>
+        </mat-form-field>
+        <button (click)="validate()" class="nextStep" color="primary" mat-raised-button>
+            S'inscrire
+        </button>
+    </form>
+    <!--    <a id="cguLink" routerLink="/cgu">Conditions d'utilisations</a>-->
+</mat-card>

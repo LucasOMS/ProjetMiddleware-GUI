@@ -1,0 +1,10 @@
+$title-font: "Candara", "Rockwell", monospace;
+$primary-color: rgb(41, 182, 246);
+$dark-color: rgb(0, 134, 195);
+$header-color: rgba(0, 20, 34, 0.9);
+//$dark-color: rgb(7, 21, 39);
+$footer-color: $header-color;
+
+@function not-transparent($color) {
+  @return rgba($color, 1);
+}

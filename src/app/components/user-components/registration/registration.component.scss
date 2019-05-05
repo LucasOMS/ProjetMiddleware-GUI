@@ -1,0 +1,55 @@
+mat-form-field {
+  display: block;
+}
+
+#card, #registrationCard {
+  margin: 10px auto 20px auto;
+  max-width: 450px;
+  border-radius: 8px;
+}
+
+#card {
+  padding-bottom: 48px;
+}
+
+.names {
+  display: flex;
+}
+
+.names mat-form-field {
+  flex: 1;
+  flex-basis: 50%;
+}
+
+.names mat-form-field:first-child {
+  flex: 1;
+  padding-right: 8px;
+}
+
+.nextStep {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+}
+
+#cguLink, #cguLink:hover, #cguLink:visited {
+  font-size: 12px;
+  position: absolute;
+  bottom: -22px;
+  color: rgb(117, 117, 117);
+  text-decoration: none;
+  right: 0;
+}
+
+app-file-upload {
+  display: block;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+img {
+  margin-bottom: 16px !important;
+}

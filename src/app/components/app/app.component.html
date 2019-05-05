@@ -1,0 +1,88 @@
+<div class="mainWrapper">
+    <header>
+        <nav class="navbar navbar-expand navbar-dark  desktop">
+            <a class="navbar-brand title" routerLink="">
+                {{title}}
+            </a>
+            <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-target="#navbarNav" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul *ngIf="connectedUser === null" class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="">Accueil</a>
+                    </li>
+                    <li *ngFor="let menuItem of menuItems" class="nav-item">
+                        <a [routerLink]="menuItem[1]" class="nav-link">{{menuItem[0]}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="login">Se connecter</a>
+                    </li>
+                </ul>
+                <ul *ngIf="connectedUser !== null" class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="">Accueil</a>
+                    </li>
+                    <li *ngFor="let menuItem of menuItems" class="nav-item">
+                        <a [routerLink]="menuItem[1]" class="nav-link">{{menuItem[0]}}</a>
+                    </li>
+                    <!--<li class="nav-item">-->
+                    <!--<a class="nav-link" routerLink="profile">Mon profil</a>-->
+                    <!--</li>-->
+                    <li class="nav-item">
+                        <a (click)="disconnect()" class="nav-link ignoreAnimation"
+                           style="cursor: pointer; display: inline-block; position: absolute; right: 5px">
+                            Se déconnecter</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav (mouseleave)="mobileMenuOpened = false"
+             class="navbar navbar-expand navbar-dark  mobile tooSmallHeight">
+            <div class="headerMobile tooSmallHeightHide">
+                <a class="navbar-brand title" routerLink="">
+                    {{title}}
+                </a>
+                <div (click)="mobileMenuOpened = !mobileMenuOpened">
+                    <mat-icon>menu</mat-icon>
+                </div>
+                <div (click)="mobileMenuOpened = false" *ngIf="mobileMenuOpened" class="mobileMenu">
+                    <ul *ngIf="connectedUser === null" class="navbar-nav mobile">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="">Accueil</a>
+                        </li>
+                        <li *ngFor="let menuItem of menuItems" class="nav-item">
+                            <a [routerLink]="menuItem[1]" class="nav-link">{{menuItem[0]}}</a>
+                        </li>
+                        <li (click)="mobileMenuOpened = false" class="nav-item">
+                            <a class="nav-link" routerLink="login">Se connecter</a>
+                        </li>
+                    </ul>
+                    <ul (click)="mobileMenuOpened = false" *ngIf="connectedUser !== null"
+                        class="navbar-nav mobile">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="">Accueil</a>
+                        </li>
+                        <li *ngFor="let menuItem of menuItems" class="nav-item">
+                            <a [routerLink]="menuItem[1]" class="nav-link">{{menuItem[0]}}</a>
+                        </li>
+                        <!--<li class="nav-item">-->
+                        <!--<a class="nav-link" routerLink="profile">Mon profil</a>-->
+                        <!--</li>-->
+                        <li class="nav-item">
+                            <a (click)="disconnect()" class="nav-link" style="cursor: pointer">Se
+                                déconnecter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <mat-sidenav-container>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

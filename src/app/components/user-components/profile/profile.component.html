@@ -1,0 +1,78 @@
+<div [ngClass]="user !== null && (user.downloadPhotoUrl !== url || url !== '') ? '': 'hideCard'">
+    <mat-card>
+        <div style="text-align: end">
+            <table style="display: inline-block">
+                <tr>
+                    <td>
+                        <mat-card-title><p style="font-size: 60px;
+                         margin-top: 15px;
+                         padding-right: 12px;
+                         line-height: 58px;">
+                            {{user !== null ? user.firstName + ' ' + user.lastName : ''}}</p>
+                        </mat-card-title>
+                    </td>
+                    <td>
+                        <div *ngIf="url !== ''" [ngStyle]="getUrl()" class="imgProfile"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div> <!-- Personnal informations -->
+            <h2>Informations personnelles</h2>
+            <mat-divider></mat-divider>
+            <div class="content">
+                <mat-form-field>
+                    <input [(ngModel)]="firstName" [value]="user !== null ? user.firstName : ''" matInput
+                           placeholder="Prénom"
+                           required type="text"/>
+                    <mat-error>Vous devez entrer une valeur</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]="lastName" [value]="user !== null ? user.lastName : ''" matInput
+                           placeholder="Nom"
+                           required type="text"/>
+                    <mat-error>Vous devez entrer une valeur</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]="mail" [value]="user !== null ? user.mail : ''" matInput placeholder="Mail"
+                           required type="text"/>
+                    <mat-error>Vous devez entrer une valeur</mat-error>
+                </mat-form-field>
+            </div>
+            <button (click)="submitChanges()" *ngIf="user !== null && (firstName !== user.firstName
+                    || lastName !== user.lastName
+                    || mail !== user.mail)" class="changeButton"
+                    color="primary"
+                    mat-raised-button>Valider
+            </button>
+        </div>
+        <div> <!-- Security -->
+            <h2>Sécurité</h2>
+            <mat-divider></mat-divider>
+            <div class="content">
+                <div>
+                    <button id="changePwd" mat-icon-button>
+                        <mat-icon>lock</mat-icon>
+                    </button>
+                    <label for="changePwd">Changer son mot de passe</label>
+                </div>
+            </div>
+        </div>
+        <div> <!-- Social networks -->
+            <h2>Réseaux sociaux</h2>
+            <mat-divider></mat-divider>
+            <div class="content">
+                <div class="socialNetworks">
+                    <button color="primary" mat-raised-button>
+                        Lier mon compte Facebook
+                    </button>
+                    <button color="primary" mat-raised-button>
+                        Lier mon compte Gmail
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
