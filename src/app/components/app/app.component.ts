@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {UserService} from "../../services/user.service";
 import {User} from "../../models/user";
 import {Router} from "@angular/router";
+import {VelibService} from "../../services/velib.service";
 
 @Component({
     selector: 'app-root',
@@ -21,7 +22,7 @@ export class AppComponent implements OnInit {
 
     isLogged = false;
 
-    constructor(private userService: UserService, private router: Router) {
+    constructor(private userService: UserService, private router: Router, private velibService: VelibService) {
         this.title = "Tiglib";
         this.mobileMenuOpened = false;
         this.menuItems = [
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
     }
 
     async ngOnInit() {
+
         this.connectedUser = await this.userService.getLoggedUser();
         if (this.connectedUser !== null) {
             this.isLogged = true;
@@ -44,6 +46,7 @@ export class AppComponent implements OnInit {
             }
             this.connectedUser = user;
         });
+
     }
 
     disconnect() {

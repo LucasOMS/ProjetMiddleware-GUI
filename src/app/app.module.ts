@@ -32,6 +32,7 @@ import {AppRoutingModule} from "./routes";
 import {UserService} from "./services/user.service";
 import {UsersListComponent} from "./components/user-components/users-list/users-list.component";
 import {HomeComponent} from './components/home/home.component';
+import {VelibService} from "./services/velib.service";
 
 @NgModule({
 
@@ -70,7 +71,7 @@ import {HomeComponent} from './components/home/home.component';
         HttpClientModule,
         AppRoutingModule,
     ],
-    providers: [UserService, AngularFireAuth, MatIconRegistry],
+    providers: [UserService, VelibService, AngularFireAuth, MatIconRegistry],
     bootstrap: [AppComponent]
 })
 export class AppModule {
