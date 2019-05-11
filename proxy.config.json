@@ -1,6 +1,6 @@
 {
-  "/VelibService/*": {
-    "target": "http://localhost:8733/",
+  "/Velib/*": {
+    "target": "http://localhost:8000/",
     "secure": false,
     "changeOrigin": true
   }

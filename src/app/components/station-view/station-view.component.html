@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>
+        {{station.name}}
+    </mat-card-title>
+    <mat-card-subtitle>{{status(station.status)}}</mat-card-subtitle>
+    <mat-card-content>
+        <div class="refresh">
+            <mat-icon (click)="refreshData()" *ngIf="!updating" svgIcon="refresh">refresh</mat-icon>
+            <mat-progress-spinner *ngIf="updating" diameter="24" mode="indeterminate"></mat-progress-spinner>
+        </div>
+        <div class="content">
+            <mat-icon svgIcon="bike"></mat-icon>
+            <p>{{station.available_bikes}}</p>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,21 @@
+<div class="sidebar">
+    <div class="city">
+        <mat-select (selectionChange)="selectCity($event)" placeholder="Ville">
+            <mat-option [value]="undefined" selected>Aucune</mat-option>
+            <mat-option *ngFor="let city of cities" [value]="city">{{city}}</mat-option>
+        </mat-select>
+    </div>
+    <div class="stations">
+        <mat-progress-spinner *ngIf="stations === undefined && selected_city !== undefined"
+                              mode="indeterminate"></mat-progress-spinner>
+        <app-station-select (selected)="changeStation($event)" *ngIf="stations !== undefined"
+                            [stations]="stations"></app-station-select>
+    </div>
+    <div class="content">
+        <app-station-view *ngIf="selected_station !== undefined" [station]="selected_station"></app-station-view>
+    </div>
+</div>
+
+
+
+

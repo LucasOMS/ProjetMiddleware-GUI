@@ -13,6 +13,6 @@
 $testing-battle-app-primary: mat-palette($mat-light-blue);
 $testing-battle-app-accent: mat-palette($mat-light-blue, A200, A100, A400);
 
-$testing-battle-app-theme: mat-light-theme($testing-battle-app-primary, $testing-battle-app-accent);
+$testing-battle-app-theme: mat-dark-theme($testing-battle-app-primary, $testing-battle-app-accent);
 
 @include angular-material-theme($testing-battle-app-theme);

@@ -1,0 +1,54 @@
+.refresh {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 22px;
+  right: 5px;
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+  mat-progress-spinner {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.content {
+  position: relative;
+  width: 150px;
+  min-height: 150px;
+  text-align: center;
+
+  mat-icon {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    font-size: 150px;
+    margin: 0;
+    padding: 0;
+    top: -50px;
+    color: #7f7f7f;
+    left: 0;
+    z-index: 0;
+  }
+
+  p {
+    position: absolute;
+    width: 150px;
+    font-size: 80px;
+  }
+}
+
+mat-card {
+  mat-card-title {
+    margin-right: 30px;
+  }
+
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

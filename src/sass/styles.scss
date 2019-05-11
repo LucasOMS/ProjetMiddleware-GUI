@@ -36,3 +36,13 @@ router-outlet + * {
   font-family: "Candara";
   src: url("./Candara.ttf");
 }
+
+.city .mat-select-value-text, .city .mat-select-placeholder, .city .mat-select-arrow, .city .mat-option, .city .mat-option-text {
+  color: white !important;
+  font-size: larger;
+  text-transform: capitalize !important;
+}
+
+.mat-option, .mat-option-text {
+  text-transform: capitalize !important;
+}

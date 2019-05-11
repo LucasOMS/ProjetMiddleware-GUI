@@ -33,6 +33,8 @@ import {UserService} from "./services/user.service";
 import {UsersListComponent} from "./components/user-components/users-list/users-list.component";
 import {HomeComponent} from './components/home/home.component';
 import {VelibService} from "./services/velib.service";
+import {StationSelectComponent} from './components/station-select/station-select.component';
+import {StationViewComponent} from './components/station-view/station-view.component';
 
 @NgModule({
 
@@ -43,6 +45,8 @@ import {VelibService} from "./services/velib.service";
         LoginComponent,
         ProfileComponent,
         HomeComponent,
+        StationSelectComponent,
+        StationViewComponent,
     ],
     imports: [
         BrowserModule,
