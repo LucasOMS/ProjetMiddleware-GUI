@@ -14,18 +14,19 @@ export class AppComponent implements OnInit {
     readonly title;
     connectedUser: User;
     /**
-     * Menu items with name and route to go to
+     * Menu items with name, route to go to and if we must be connected
      */
-    menuItems: [string, string][];
+    menuItems: [string, string, boolean][];
 
     mobileMenuOpened: boolean;
 
     isLogged = false;
 
-    constructor(private userService: UserService, private router: Router, private velibService: VelibService) {
+    constructor(private userService: UserService, private router: Router) {
         this.title = "Tiglib";
         this.mobileMenuOpened = false;
         this.menuItems = [
+            ['Monitoring', 'monitoring', true]
             // Complete entries for menus there
         ];
     }

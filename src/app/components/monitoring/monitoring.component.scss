@@ -1,0 +1,49 @@
+#wrapper {
+  width: 100vw;
+  height: calc(100vh - 45px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 52px;
+  padding: 30px;
+}
+
+mat-card {
+  mat-card-title {
+    margin-right: 30px;
+  }
+
+  mat-card-content {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  mat-progress-spinner {
+    margin-left: calc(50% - 15px);
+  }
+}
+
+.refresh {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 22px;
+  right: 5px;
+  font-size: 15px;
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+  mat-progress-spinner {
+    width: 24px;
+    height: 24px;
+  }
+}
+

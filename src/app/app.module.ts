@@ -35,6 +35,8 @@ import {HomeComponent} from './components/home/home.component';
 import {VelibService} from "./services/velib.service";
 import {StationSelectComponent} from './components/station-select/station-select.component';
 import {StationViewComponent} from './components/station-view/station-view.component';
+import {MonitoringComponent} from './components/monitoring/monitoring.component';
+import {MonitoringService} from "./services/monitoring.service";
 
 @NgModule({
 
@@ -47,6 +49,7 @@ import {StationViewComponent} from './components/station-view/station-view.compo
         HomeComponent,
         StationSelectComponent,
         StationViewComponent,
+        MonitoringComponent,
     ],
     imports: [
         BrowserModule,
@@ -75,7 +78,7 @@ import {StationViewComponent} from './components/station-view/station-view.compo
         HttpClientModule,
         AppRoutingModule,
     ],
-    providers: [UserService, VelibService, AngularFireAuth, MatIconRegistry],
+    providers: [UserService, VelibService, MonitoringService, AngularFireAuth, MatIconRegistry],
     bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -15,8 +15,7 @@ export class VelibService {
 
     public async getCities(): Promise<string[]> {
         const client = await this.client;
-        console.log(client.describe());
-        return (await ((<any>client).GetCities().toPromise())).result.GetCitiesResult.string;
+        return (await ((<any>client).GetCities({}).toPromise())).result.GetCitiesResult.string;
     }
 
     public async getStationsOf(city: string): Promise<Station[]> {

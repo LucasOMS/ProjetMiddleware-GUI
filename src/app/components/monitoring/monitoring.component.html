@@ -1,0 +1,28 @@
+<div id="wrapper">
+    <div id="grid">
+        <mat-card>
+            <mat-card-title>Nombre de requête</mat-card-title>
+            <mat-card-content>
+                <div class="refresh">
+                    <mat-icon (click)="refreshRequestNumber()" *ngIf="!updating1" svgIcon="refresh">refresh</mat-icon>
+                    <mat-progress-spinner *ngIf="updating1" diameter="24" mode="indeterminate"></mat-progress-spinner>
+                </div>
+                <mat-progress-spinner *ngIf="monitoring === null" diameter="30"
+                                      mode="indeterminate"></mat-progress-spinner>
+                <p *ngIf="monitoring !== null">{{monitoring.number_requests}}</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-title>Temps moyen d'une requête</mat-card-title>
+            <mat-card-content>
+                <div class="refresh">
+                    <mat-icon (click)="refreshMeanTime()" *ngIf="!updating2" svgIcon="refresh">refresh</mat-icon>
+                    <mat-progress-spinner *ngIf="updating2" diameter="24" mode="indeterminate"></mat-progress-spinner>
+                </div>
+                <mat-progress-spinner *ngIf="monitoring === null" diameter="30"
+                                      mode="indeterminate"></mat-progress-spinner>
+                <p *ngIf="monitoring !== null">{{monitoring.mean_request_time}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
