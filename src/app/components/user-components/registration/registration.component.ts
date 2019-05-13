@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._userToRegister = new User('', '', '', '', '', '');
+        this._userToRegister = new User('', '', '', '', '');
         this.formControlMail = new FormControl('', [Validators.required, Validators.email]);
         this.formControlPwdConfirm = new FormControl('', [Validators.required]);
         this.formControlPwd = new FormControl('', [Validators.required]);

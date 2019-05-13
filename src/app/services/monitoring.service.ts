@@ -1,10 +1,7 @@
 import {Injectable} from "@angular/core";
-import {HttpHeaders} from "@angular/common/http";
 import {Client, NgxSoapService} from "ngx-soap";
-
-const httpOptions = {
-    headers: new HttpHeaders({"Content-Type": "application/json"})
-};
+import {User} from "../models/user";
+import * as shajs from 'sha.js';
 
 /**
  * This class contains all functions used to manage users
@@ -12,6 +9,7 @@ const httpOptions = {
 @Injectable()
 export class MonitoringService {
 
+    private readonly HASH_ALGORITHM: string = 'sha256';
 
     private readonly client: Promise<Client>;
 
@@ -20,13 +18,19 @@ export class MonitoringService {
     }
 
 
-    async getNumberOfRequest(): Promise<number> {
+    async getNumberOfRequest(userConnected: User): Promise<number> {
         const client = await this.client;
-        return (await ((<any>client).NumberOfRequest({}).toPromise())).result.NumberOfRequestResult;
+        return (await ((<any>client).NumberOfRequest(
+            {
+                userIdHashed: shajs(this.HASH_ALGORITHM).update(userConnected.userId).digest('hex')
+            }).toPromise())).result.NumberOfRequestResult;
     }
 
-    async getMeanTime(): Promise<number> {
+    async getMeanTime(userConnected: User): Promise<number> {
         const client = await this.client;
-        return (await ((<any>client).MeanRequestTime({}).toPromise())).result.MeanRequestTimeResult;
+        return (await ((<any>client).MeanRequestTime(
+            {
+                userIdHashed: shajs(this.HASH_ALGORITHM).update(userConnected.userId).digest('hex')
+            }).toPromise())).result.MeanRequestTimeResult;
     }
 }

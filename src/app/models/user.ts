@@ -11,20 +11,17 @@ export class User {
      * @param mail
      * @param photoUrl
      * @param userId
-     * @param idPlayer
      */
     constructor(firstName: string,
                 lastName: string,
                 mail: string,
                 photoUrl: string,
-                userId: string,
-                idPlayer: string) {
+                userId: string) {
         this._firstName = firstName;
         this._lastName = lastName;
         this._mail = mail;
         this._photoUrl = photoUrl;
         this._userId = userId;
-        this._idPlayer = idPlayer;
     }
 
     private _downloadPhotoUrl: string;
@@ -45,10 +42,6 @@ export class User {
 
     set subscriptions(value: string[]) {
         this._subscriptions = value;
-    }
-
-    get idPlayer(): string {
-        return this._idPlayer;
     }
 
     private _state: UserState;
@@ -169,7 +162,7 @@ export class User {
     }
 
     static fromJSON(doc): User {
-        const user = new User(doc.firstName, doc.lastName, doc.mail, doc.photoUrl, doc.userId, doc.idPlayer);
+        const user = new User(doc.firstName, doc.lastName, doc.mail, doc.photoUrl, doc.userId);
         if (!isNullOrUndefined(doc.state)) {
             user.state = doc.state;
         }
@@ -178,13 +171,6 @@ export class User {
         } else {
             user.subscriptions = [];
         }
-        // if (doc.reports !== undefined) {
-        //     const fromJsonToMap = new Map();
-        //     for (const k of Object.keys(doc.reports)) {
-        //         fromJsonToMap.set(k, doc.reports[k]);
-        //     }
-        //     user.reports = fromJsonToMap;
-        // }
         return user;
     }
 

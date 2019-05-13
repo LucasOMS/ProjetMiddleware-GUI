@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.hidePwd = true;
-        this.userToConnect = new User('', '', '', '', '', '');
+        this.userToConnect = new User('', '', '', '', '');
     }
 
     connect() {
