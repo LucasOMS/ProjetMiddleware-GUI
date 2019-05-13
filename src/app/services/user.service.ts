@@ -28,6 +28,8 @@ export class UserService {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.getLoggedUserFromCache();
+            } else {
+                this.loggedUser.updateUser(null);
             }
         });
     }

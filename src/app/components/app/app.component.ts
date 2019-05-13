@@ -12,7 +12,7 @@ import {VelibService} from "../../services/velib.service";
 export class AppComponent implements OnInit {
 
     readonly title;
-    connectedUser: User;
+    connectedUser: User = null;
     /**
      * Menu items with name, route to go to and if we must be connected
      */
