@@ -36,6 +36,9 @@ export class VelibService {
         const station_data = (await ((<any>client).GetStationData(
             {station_number: station.number, contract_name: station.contract_name}
         ).toPromise())).result.GetStationDataResult;
-        return Station.fromSOAP(station_data);
+        const update = Station.fromSOAP(station_data);
+        station.status = update.status;
+        station.available_bikes = update.available_bikes;
+        return station;
     }
 }

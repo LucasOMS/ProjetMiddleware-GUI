@@ -9,20 +9,28 @@ li {
   cursor: pointer;
   font-family: "Roboto", inherit, serif;
 
-  &:nth-child(2n) {
+  &:nth-child(2n):not(.selectedStation) {
     background: #424242;
   }
 
-  &:nth-child(2n):hover {
+  &:nth-child(2n):not(.selectedStation):hover {
     background: #373737;
   }
 
-  &:nth-child(2n +1) {
+  &:nth-child(2n +1):not(.selectedStation) {
     background: #3e3e3e;
   }
 
-  &:nth-child(2n +1):hover {
+  &:nth-child(2n +1):not(.selectedStation):hover {
     background: #373737;
+  }
+
+  &:nth-child(2n).selectedStation, &:nth-child(2n+1).selectedStation {
+    background: #29B6F6;
+  }
+
+  &:nth-child(2n).selectedStation:hover, &:nth-child(2n+1).selectedStation:hover {
+    background: #28A1DF;
   }
 }
 

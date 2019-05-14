@@ -16,7 +16,7 @@
             <mat-card-title>Temps moyen d'une requête</mat-card-title>
             <mat-card-content>
                 <div class="refresh">
-                    <mat-icon (click)="refreshMeanTime()" *ngIf="!updating2" svgIcon="refresh">refresh</mat-icon>
+                    <mat-icon (click)="refreshMeanTime()" *ngIf="!updating2" svgIcon="refresh"></mat-icon>
                     <mat-progress-spinner *ngIf="updating2" diameter="24" mode="indeterminate"></mat-progress-spinner>
                 </div>
                 <mat-progress-spinner *ngIf="monitoring === null" diameter="30"

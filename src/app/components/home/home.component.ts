@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
 
     selected_city = undefined;
     selected_station: Station;
+    center: { longitude: number, latitude: number };
+    stationOfInfoWindows: Station;
 
     constructor(private velibService: VelibService) {
     }
@@ -39,13 +41,27 @@ export class HomeComponent implements OnInit {
                     return -1;
                 }
             });
+            // Compute center of the city
+            let sumX = 0.0;
+            let sumY = 0.0;
+            for (const station of res) {
+                sumX += station.position.longitude;
+                sumY += station.position.latitude;
+            }
+            this.center = {
+                longitude: sumX / res.length,
+                latitude: sumY / res.length,
+            };
             this.stations = res;
         }
     }
 
     async changeStation(station: Station) {
+        this.stationOfInfoWindows = station;
         this.selected_station = station;
-        console.log(station);
+        // Update data with lazy load
         this.selected_station = await this.velibService.retrieveDataFor(station);
+        this.stationOfInfoWindows = this.selected_station;
+
     }
 }

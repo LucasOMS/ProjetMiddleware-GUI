@@ -23,9 +23,10 @@ export class AppComponent implements OnInit {
     isLogged = false;
 
     constructor(private userService: UserService, private router: Router) {
-        this.title = "Tiglib";
+        this.title = "Velib";
         this.mobileMenuOpened = false;
         this.menuItems = [
+            ['Profil', 'profile', true],
             ['Monitoring', 'monitoring', true]
             // Complete entries for menus there
         ];

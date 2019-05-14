@@ -9,10 +9,31 @@
         <mat-progress-spinner *ngIf="stations === undefined && selected_city !== undefined"
                               mode="indeterminate"></mat-progress-spinner>
         <app-station-select (selected)="changeStation($event)" *ngIf="stations !== undefined"
+                            [selected_station]="selected_station"
                             [stations]="stations"></app-station-select>
     </div>
     <div class="content">
-        <app-station-view *ngIf="selected_station !== undefined" [station]="selected_station"></app-station-view>
+        <!--        <app-station-view *ngIf="selected_station !== undefined" [station]="selected_station"></app-station-view>-->
+        <agm-map (mapClick)="stationOfInfoWindows = undefined"
+                 *ngIf="selected_city !== null && stations !== undefined"
+                 [latitude]="center.latitude"
+                 [longitude]="center.longitude" [zoom]="13">
+            <agm-marker (markerClick)="changeStation(station)"
+                        *ngFor="let station of stations"
+                        [iconUrl]="station === selected_station ?
+                        '../../../assets/bike_selected.svg' : '../../../assets/bike.svg'"
+                        [latitude]="station.position.latitude"
+                        [longitude]="station.position.longitude"
+                        [title]="station.name"
+                        [zIndex]="station === selected_station ? 10 : 1">
+                <agm-info-window (infoWindowClose)="stationOfInfoWindows = undefined"
+                                 [isOpen]="stationOfInfoWindows !== undefined && stationOfInfoWindows === station"
+                                 [maxWidth]="350">
+                    <app-station-view [station]="station"></app-station-view>
+                </agm-info-window>
+            </agm-marker>
+        </agm-map>
+        <div class="shadowMap"></div>
     </div>
 </div>
 

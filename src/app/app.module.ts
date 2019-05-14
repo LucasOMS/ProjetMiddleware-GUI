@@ -37,6 +37,7 @@ import {StationSelectComponent} from './components/station-select/station-select
 import {StationViewComponent} from './components/station-view/station-view.component';
 import {MonitoringComponent} from './components/monitoring/monitoring.component';
 import {MonitoringService} from "./services/monitoring.service";
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
 
@@ -74,7 +75,9 @@ import {MonitoringService} from "./services/monitoring.service";
         AngularFirestoreModule,
         AngularFireStorageModule,
         AngularFireAuthModule,
-
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyC8es585c2lNAta5IBsvD2qcVCklK5idOc'
+        }),
         HttpClientModule,
         AppRoutingModule,
     ],

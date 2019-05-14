@@ -10,10 +10,11 @@ import {DomSanitizer} from "@angular/platform-browser";
     styleUrls: ['./station-view.component.scss']
 })
 export class StationViewComponent implements OnInit {
-
     @Input()
     station: Station;
     updating: boolean;
+    longitude: number;
+    latitude: number;
 
     constructor(private velibService: VelibService, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
         this.matIconRegistry.addSvgIcon(

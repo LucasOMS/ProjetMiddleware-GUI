@@ -14,6 +14,9 @@ export class StationSelectComponent implements OnInit {
     @Output()
     selected: EventEmitter<Station> = new EventEmitter();
 
+    @Input()
+    selected_station: Station;
+
     constructor() {
     }
 

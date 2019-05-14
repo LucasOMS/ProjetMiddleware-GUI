@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "^7.2.14",
     "@angular/cdk": "^7.3.7",
     "@angular/common": "^7.2.14",
@@ -25,6 +26,7 @@
     "@angular/router": "^7.2.14",
     "@ng-bootstrap/ng-bootstrap": "^2.1.2",
     "@types/jquery": "^3.3.6",
+    "agm-direction": "^0.7.6",
     "angular-material": "^1.1.10",
     "angularfire2": "^5.0.0-rc.11",
     "bootstrap": "^4.1.2",

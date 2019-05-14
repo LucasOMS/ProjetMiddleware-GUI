@@ -7,6 +7,7 @@
 
   mat-icon {
     cursor: pointer;
+    color: #1111117a;
   }
 
   mat-progress-spinner {
@@ -29,21 +30,31 @@
     margin: 0;
     padding: 0;
     top: -50px;
-    color: #7f7f7f;
+    color: #afafaf4f;
     left: 0;
     z-index: 0;
   }
 
   p {
+    color: #03A9F4;
     position: absolute;
     width: 150px;
     font-size: 80px;
+    font-weight: 500;
   }
 }
 
 mat-card {
+  background: none;
+  box-shadow: none !important;
+
   mat-card-title {
+    color: #111111;
     margin-right: 30px;
+  }
+
+  mat-card-subtitle {
+    color: #444;
   }
 
   mat-card-content {

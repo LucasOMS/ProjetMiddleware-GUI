@@ -1,5 +1,6 @@
 <ul>
-    <li (click)="select(station)" *ngFor="let station of stations">
-        {{station.number}} - {{station.name}}
+    <li (click)="select(station)" *ngFor="let station of stations"
+        [ngClass]="{ 'selectedStation': selected_station !== undefined && station === selected_station}">
+        {{station.name}}
     </li>
 </ul>

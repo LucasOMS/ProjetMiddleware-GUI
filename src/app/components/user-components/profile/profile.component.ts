@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
      * Used as a placeholder
      */
     defaultImageUrl = 'assets/user_placeholder.png';
-    user: User;
+    user: User = null;
     url = this.defaultImageUrl;
 
     firstName = '';
